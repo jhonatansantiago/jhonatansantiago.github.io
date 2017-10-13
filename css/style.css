@@ -536,12 +536,6 @@ ol {
     font-weight: 400;
     display: inline-block;
 }
-.header-text p:before,
-.header-text p:after {
-    font-family: "FontAwesome";
-    position: absolute;
-    font-size: 12px;
-}
 .header-text p:before {
     content: "\f10e";
     right: -22px;
