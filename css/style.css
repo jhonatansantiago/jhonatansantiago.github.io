@@ -536,16 +536,6 @@ ol {
     font-weight: 400;
     display: inline-block;
 }
-.header-text p:before {
-    content: "\f10e";
-    right: -22px;
-    bottom: -8px;
-}
-.header-text p:after {
-    left: -22px;
-    top: -6px;
-    content: "\f10d";
-}
 .home-arrow-down {
     text-align: center;
     position: absolute;
