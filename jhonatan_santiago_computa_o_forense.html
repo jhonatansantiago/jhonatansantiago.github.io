@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfólio de Jhonatan Santiago, Perito Oficial Criminal especializado em Computação Forense na Polícia Científica do Estado de Goiás.">
+    <meta name="keywords" content="perito criminal, computação forense, Polícia Científica, Goiás, investigação digital, Jhonatan Santiago, segurança cibernética">
+    <title>Jhonatan Santiago | Perito Criminal - Computação Forense</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+    <style>
+        :root {
+            --bg-dark: #030712; /* Deep dark blue/black */
+            --primary: #1d4ed8; /* Police Blue */
+            --secondary: #38bdf8; /* Light tech blue */
+            --accent: #e2e8f0; /* Crisp white/silver */
+            --card-bg: rgba(15, 23, 42, 0.7);
+            --border-color: rgba(56, 189, 248, 0.15);
+            --danger: #ef4444;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--accent);
+            overflow-x: hidden;
+            background-image: 
+                linear-gradient(rgba(3, 7, 18, 0.9), rgba(3, 7, 18, 0.9)),
+                url('data:image/svg+xml;utf8,<svg width="40" height="40" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h40v40H0z" fill="none"/><path d="M0 39.5h40" stroke="rgba(29, 78, 216, 0.1)" stroke-width="1"/><path d="M39.5 0v40" stroke="rgba(29, 78, 216, 0.1)" stroke-width="1"/></svg>');
+        }
+
+        .font-mono {
+            font-family: 'Fira Code', monospace;
+        }
+
+        /* Particle Background for "Digital Data" feel */
+        #particles-js {
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-dark); }
+        ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--secondary); }
+
+        /* Forensic UI Elements */
+        .glass-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--secondary), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--secondary);
+            box-shadow: 0 10px 40px rgba(29, 78, 216, 0.2);
+        }
+
+        .glass-card:hover::before { opacity: 1; }
+
+        .glass-nav {
+            background: rgba(3, 7, 18, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        /* Tech Badges */
+        .tech-badge {
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--secondary);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-family: 'Fira Code', monospace;
+            transition: all 0.3s ease;
+        }
+        
+        .tech-badge:hover {
+            background: rgba(56, 189, 248, 0.2);
+            border-color: var(--secondary);
+        }
+
+        /* Glitch/Scanline effect for emphasis */
+        .scanline {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: rgba(56, 189, 248, 0.3);
+            opacity: 0.4;
+            animation: scan 4s linear infinite;
+            pointer-events: none;
+            z-index: 50;
+        }
+
+        @keyframes scan {
+            0% { top: 0; opacity: 0; }
+            10% { opacity: 0.4; }
+            90% { opacity: 0.4; }
+            100% { top: 100%; opacity: 0; }
+        }
+
+        .text-gradient {
+            background: linear-gradient(to right, #ffffff, var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Simulated redacted text */
+        .redacted {
+            background-color: #1f2937;
+            color: transparent;
+            user-select: none;
+            border-radius: 2px;
+            display: inline-block;
+        }
+        .redacted:hover {
+            color: #4b5563;
+            transition: color 0.3s ease;
+        }
+
+        .admin-only {
+            display: none; /* Shown via JS if admin */
+        }
+        
+        .modal-enter {
+            animation: modalFadeIn 0.3s ease-out forwards;
+        }
+        
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-blue-600 selection:text-white">
+
+    <div id="particles-js"></div>
+    <div class="scanline"></div>
+    
+    <!-- Subtle glow accents -->
+    <div class="absolute top-0 left-1/4 w-96 h-96 bg-blue-900 rounded-full mix-blend-screen filter blur-[120px] opacity-30 z-[-1]"></div>
+    <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-900 rounded-full mix-blend-screen filter blur-[120px] opacity-20 z-[-1]"></div>
+
+    <nav class="glass-nav fixed w-full z-50 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="flex items-center gap-3 group">
+                <i class="fa-solid fa-fingerprint text-blue-400 text-2xl group-hover:text-blue-300 transition-colors"></i>
+                <div class="flex flex-col">
+                    <span class="text-sm font-bold tracking-widest text-white">JHONATAN <span class="text-blue-400">SANTIAGO</span></span>
+                    <span class="text-[0.6rem] font-mono text-gray-400 uppercase tracking-widest">Perito Oficial Criminal</span>
+                </div>
+            </a>
+            
+            <div class="hidden md:flex items-center space-x-8 text-sm font-medium tracking-wide">
+                <a href="#home" class="text-gray-300 hover:text-white transition-colors flex items-center gap-2"><i class="fa-solid fa-house text-blue-500/50"></i> INÍCIO</a>
+                <a href="#about" class="text-gray-300 hover:text-white transition-colors flex items-center gap-2"><i class="fa-solid fa-id-card text-blue-500/50"></i> SOBRE</a>
+                <a href="#expertise" class="text-gray-300 hover:text-white transition-colors flex items-center gap-2"><i class="fa-solid fa-microchip text-blue-500/50"></i> EXPERTISE</a>
+                <a href="#cases" class="text-gray-300 hover:text-white transition-colors flex items-center gap-2"><i class="fa-solid fa-folder-open text-blue-500/50"></i> CASOS</a>
+                <a href="#blog" class="text-gray-300 hover:text-white transition-colors flex items-center gap-2"><i class="fa-solid fa-terminal text-blue-500/50"></i> DEBATES</a>
+                <a href="#contact" class="px-5 py-2 bg-blue-600/20 border border-blue-500/50 hover:bg-blue-600 hover:text-white text-blue-400 rounded transition-all font-mono text-xs">CONTATO</a>
+            </div>
+
+            <button class="md:hidden text-2xl focus:outline-none text-gray-300 hover:text-white">
+                <i class="fa-solid fa-bars-staggered"></i>
+            </button>
+        </div>
+    </nav>
+
+    <section id="home" class="min-h-screen flex items-center justify-center pt-24 px-6 relative">
+        <div class="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center reveal-hero">
+            
+            <div class="order-2 lg:order-1 text-center lg:text-left">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded border border-blue-500/30 bg-blue-900/20 text-blue-400 text-xs font-mono mb-6 uppercase tracking-widest">
+                    <span class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span> Polícia Científica - GO
+                </div>
+                
+                <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-4 text-white leading-tight">
+                    Ciência e Dados na <br />
+                    <span class="text-gradient">Busca pela Verdade.</span>
+                </h1>
+                
+                <div class="h-8 mb-6">
+                    <h2 class="text-lg md:text-xl font-mono text-gray-400 tracking-wide">
+                        > <span id="typed-text" class="text-blue-300"></span>
+                    </h2>
+                </div>
+                
+                <p class="text-gray-400 text-base md:text-lg mb-8 leading-relaxed max-w-xl mx-auto lg:mx-0">
+                    Especialista na coleta, preservação e análise de evidências digitais. Transformando dados complexos em provas materiais irrefutáveis para o sistema de justiça criminal.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                    <a href="#cases" class="px-8 py-3 bg-blue-600 hover:bg-blue-500 text-white font-medium rounded flex items-center justify-center gap-2 transition-all shadow-[0_0_15px_rgba(29,78,216,0.4)]">
+                        <i class="fa-solid fa-magnifying-glass"></i> Ver Casos Públicos
+                    </a>
+                    <a href="https://instagram.com/jhonatansantyago" target="_blank" class="px-8 py-3 bg-transparent border border-gray-600 hover:border-blue-400 hover:text-blue-400 text-gray-300 font-medium rounded flex items-center justify-center gap-2 transition-all">
+                        <i class="fa-brands fa-instagram text-lg"></i> @jhonatansantyago
+                    </a>
+                </div>
+            </div>
+
+            <div class="order-1 lg:order-2 flex justify-center relative">
+                <div class="relative w-64 h-[22rem] md:w-80 md:h-[28rem] lg:w-96 lg:h-[32rem]">
+                    <!-- Tech aesthetic framing -->
+                    <div class="absolute inset-0 border border-blue-500/20 rounded-lg transform rotate-3"></div>
+                    <div class="absolute inset-0 border border-blue-400/30 rounded-lg transform -rotate-3 transition-transform hover:rotate-0 duration-500"></div>
+                    
+                    <div class="absolute -inset-2 bg-gradient-to-tr from-blue-600 to-cyan-400 rounded-lg opacity-20 blur-xl"></div>
+                    
+                    <img src="fotojhonatan.png" 
+                         onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=800';"
+                         alt="Jhonatan Santiago - Perito Criminal" 
+                         class="w-full h-full object-cover object-top rounded-lg border border-gray-700 shadow-2xl relative z-10 filter contrast-125 grayscale-[20%]">
+                    
+                    <!-- Decorative forensic markers -->
+                    <div class="absolute -top-4 -left-4 w-8 h-8 border-t-2 border-l-2 border-blue-400 z-20"></div>
+                    <div class="absolute -bottom-4 -right-4 w-8 h-8 border-b-2 border-r-2 border-blue-400 z-20"></div>
+                    <div class="absolute bottom-4 left-4 bg-black/80 backdrop-blur px-3 py-1 text-[0.65rem] font-mono text-blue-300 border border-blue-900/50 rounded flex items-center gap-2 z-20">
+                        <i class="fa-solid fa-lock text-green-400"></i> AUTH_GRANTED
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="about" class="py-20 px-6 border-t border-gray-800/50 bg-black/20">
+        <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-10">
+            
+            <div class="md:col-span-4 reveal-left">
+                <div class="sticky top-28">
+                    <div class="text-blue-500 font-mono text-xs uppercase tracking-widest mb-2">// Identificação</div>
+                    <h3 class="text-3xl font-bold mb-6 text-white">O Perito</h3>
+                    
+                    <div class="glass-card p-6 rounded-lg mb-6">
+                        <ul class="space-y-4 text-sm font-mono text-gray-300">
+                            <li class="flex justify-between border-b border-gray-800 pb-2">
+                                <span class="text-gray-500">NOME:</span> <span class="text-white">Jhonatan Santiago</span>
+                            </li>
+                            <li class="flex justify-between border-b border-gray-800 pb-2">
+                                <span class="text-gray-500">CARGO:</span> <span class="text-white">Perito Criminal</span>
+                            </li>
+                            <li class="flex justify-between border-b border-gray-800 pb-2">
+                                <span class="text-gray-500">ÓRGÃO:</span> <span class="text-white">Polícia Científica (GO)</span>
+                            </li>
+                            <li class="flex justify-between pb-2">
+                                <span class="text-gray-500">STATUS:</span> <span class="text-green-400"><i class="fa-solid fa-circle text-[0.5rem] align-middle mr-1"></i>Ativo</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="md:col-span-8 glass-card p-8 md:p-10 rounded-lg reveal-right">
+                <i class="fa-solid fa-quote-left text-3xl text-blue-900 mb-6 block"></i>
+                <div class="space-y-6 text-gray-300 leading-relaxed text-lg">
+                    <p>
+                        Com uma sólida base em ciência da computação e segurança da informação, dedico minha carreira à aplicação de metodologias científicas rigorosas para a investigação de crimes cibernéticos e análise de dispositivos digitais.
+                    </p>
+                    <p>
+                        Como <strong class="text-white font-medium">Perito Oficial Criminal</strong> na área de Computação Forense da Polícia Científica de Goiás, minha missão principal é extrair, preservar e analisar dados digitais, garantindo a integridade da <span class="text-blue-300 underline decoration-blue-500/50 underline-offset-4">cadeia de custódia</span> desde a cena do crime até a emissão do laudo pericial.
+                    </p>
+                    <p>
+                        Minha atuação envolve desde a recuperação de dados apagados em dispositivos móveis até análises complexas de artefatos de sistemas operacionais, rastreamento de ativos em blockchain e engenharia reversa de malwares utilizados em fraudes financeiras.
+                    </p>
+                </div>
+                
+                <div class="mt-8 pt-8 border-t border-gray-800 flex flex-wrap gap-6">
+                    <div>
+                        <div class="text-4xl font-bold text-white mb-1">10+</div>
+                        <div class="text-xs text-gray-500 font-mono uppercase">Anos de Experiência em TI</div>
+                    </div>
+                    <div>
+                        <div class="text-4xl font-bold text-white mb-1">500+</div>
+                        <div class="text-xs text-gray-500 font-mono uppercase">Laudos Emitidos</div>
+                    </div>
+                    <div>
+                        <div class="text-4xl font-bold text-white mb-1">100%</div>
+                        <div class="text-xs text-gray-500 font-mono uppercase">Sigilo e Ética</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="expertise" class="py-24 px-6 relative">
+        <div class="max-w-6xl mx-auto">
+            <div class="mb-16 text-center reveal-bottom">
+                <div class="text-blue-500 font-mono text-xs uppercase tracking-widest mb-2">// Capacidade Técnica</div>
+                <h3 class="text-3xl md:text-4xl font-bold mb-4">Áreas de Expertise</h3>
+                <p class="text-gray-400 max-w-2xl mx-auto">Ferramentas, técnicas e metodologias empregadas na busca, coleta e análise de vestígios cibernéticos.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                
+                <!-- Category 1 -->
+                <div class="glass-card p-6 rounded-lg reveal-card">
+                    <div class="w-12 h-12 bg-blue-900/30 rounded border border-blue-500/30 flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-mobile-screen text-blue-400 text-xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3 text-white">Forense em Dispositivos Móveis</h4>
+                    <p class="text-sm text-gray-400 mb-6">Extração lógica, sistema de arquivos e física de smartphones. Quebra de senhas e recuperação de mensagens apagadas.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tech-badge">Cellebrite UFED</span>
+                        <span class="tech-badge">Oxygen Forensics</span>
+                        <span class="tech-badge">Android/iOS Internals</span>
+                    </div>
+                </div>
+
+                <!-- Category 2 -->
+                <div class="glass-card p-6 rounded-lg reveal-card" style="transition-delay: 100ms;">
+                    <div class="w-12 h-12 bg-blue-900/30 rounded border border-blue-500/30 flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-hard-drive text-blue-400 text-xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3 text-white">Forense Computacional Clássica</h4>
+                    <p class="text-sm text-gray-400 mb-6">Análise de discos, memória RAM, artefatos do Windows/Linux/macOS, e recuperação avançada de arquivos deletados.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tech-badge">Autopsy / TSK</span>
+                        <span class="tech-badge">FTK Imager</span>
+                        <span class="tech-badge">Volatility</span>
+                        <span class="tech-badge">EnCase</span>
+                    </div>
+                </div>
+
+                <!-- Category 3 -->
+                <div class="glass-card p-6 rounded-lg reveal-card" style="transition-delay: 200ms;">
+                    <div class="w-12 h-12 bg-blue-900/30 rounded border border-blue-500/30 flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-network-wired text-blue-400 text-xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3 text-white">OSINT e Rastreamento</h4>
+                    <p class="text-sm text-gray-400 mb-6">Inteligência em Fontes Abertas, análise de redes, logs de provedores e rastreamento de transações com criptomoedas.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tech-badge">Maltego</span>
+                        <span class="tech-badge">Wireshark</span>
+                        <span class="tech-badge">Blockchain Analysis</span>
+                        <span class="tech-badge">Python Scripting</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="cases" class="py-24 px-6 border-t border-gray-800/50 bg-black/40">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12 reveal-bottom">
+                <div>
+                    <div class="text-blue-500 font-mono text-xs uppercase tracking-widest mb-2">// Arquivo Confidencial</div>
+                    <div class="flex items-center gap-4">
+                        <h3 class="text-3xl md:text-4xl font-bold">Estudos de Caso</h3>
+                        <button id="btn-add-case" class="admin-only bg-blue-600 hover:bg-blue-500 text-white px-3 py-1 rounded text-sm font-mono transition-colors shadow-lg" onclick="openCaseModal()"><i class="fa-solid fa-plus"></i> Novo Caso</button>
+                    </div>
+                </div>
+                <p class="text-gray-500 text-sm max-w-md mt-4 md:mt-0 font-mono">
+                    *Nota: Os dados e nomes apresentados abaixo foram alterados ou anonimizados para preservar o sigilo das investigações.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8" id="cases-grid">
+                <!-- Cases will be loaded here dynamically via Firebase -->
+                <div class="col-span-full flex justify-center py-12 text-blue-500">
+                    <i class="fa-solid fa-circle-notch fa-spin text-4xl"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="blog" class="py-24 px-6 relative">
+        <div class="max-w-4xl mx-auto">
+            <div class="mb-12 text-center reveal-bottom">
+                <div class="text-blue-500 font-mono text-xs uppercase tracking-widest mb-2">// Compartilhamento de Conhecimento</div>
+                <div class="flex items-center justify-center gap-4 mb-4">
+                    <h3 class="text-3xl font-bold">Artigos & Debates</h3>
+                    <button id="btn-add-post" class="admin-only bg-blue-600 hover:bg-blue-500 text-white px-3 py-1 rounded text-sm font-mono transition-colors shadow-lg" onclick="openPostModal()"><i class="fa-solid fa-plus"></i> Novo Artigo</button>
+                </div>
+                <p class="text-gray-400">Espaço dedicado à discussão técnica sobre forense digital e segurança da informação.</p>
+            </div>
+
+            <div class="space-y-6" id="posts-grid">
+                <!-- Posts will be loaded here dynamically via Firebase -->
+                <div class="flex justify-center py-12 text-blue-500">
+                    <i class="fa-solid fa-circle-notch fa-spin text-4xl"></i>
+                </div>
+            </div>
+            
+            <div class="mt-8 text-center">
+                <a href="#" class="inline-block text-blue-400 hover:text-white font-mono text-sm underline decoration-blue-500/30 underline-offset-4 transition-all">Acessar todos os artigos -></a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-24 px-6 border-t border-gray-800/50 bg-black/60 relative">
+        <div class="max-w-4xl mx-auto glass-card p-8 md:p-12 rounded-lg reveal-card">
+            <div class="text-center mb-10">
+                <i class="fa-solid fa-shield-halved text-4xl text-blue-500 mb-4"></i>
+                <h3 class="text-3xl font-bold mb-2">Contato Profissional</h3>
+                <p class="text-gray-400 text-sm">Para assuntos institucionais, palestras, consultorias acadêmicas ou networking na área de segurança pública e computação forense.</p>
+            </div>
+
+            <form class="space-y-6" onsubmit="event.preventDefault(); alert('Em um ambiente real, esta mensagem seria enviada com segurança.');">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="space-y-2">
+                        <label class="text-xs font-mono text-gray-400 uppercase tracking-wider">Nome / Instituição</label>
+                        <input type="text" class="w-full bg-gray-900/50 border border-gray-700 rounded px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors placeholder-gray-600" placeholder="Ex: Inspetor João - PCGO">
+                    </div>
+                    <div class="space-y-2">
+                        <label class="text-xs font-mono text-gray-400 uppercase tracking-wider">E-mail Profissional</label>
+                        <input type="email" class="w-full bg-gray-900/50 border border-gray-700 rounded px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors placeholder-gray-600" placeholder="contato@instituicao.gov.br">
+                    </div>
+                </div>
+                <div class="space-y-2">
+                    <label class="text-xs font-mono text-gray-400 uppercase tracking-wider">Assunto</label>
+                    <input type="text" class="w-full bg-gray-900/50 border border-gray-700 rounded px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors placeholder-gray-600" placeholder="Qual o motivo do contato?">
+                </div>
+                <div class="space-y-2">
+                    <label class="text-xs font-mono text-gray-400 uppercase tracking-wider">Mensagem</label>
+                    <textarea rows="4" class="w-full bg-gray-900/50 border border-gray-700 rounded px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors placeholder-gray-600 resize-none" placeholder="Digite sua mensagem de forma clara e objetiva. Lembre-se de não compartilhar dados sensíveis de investigações ativas por este canal."></textarea>
+                </div>
+                
+                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 rounded transition-colors flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-paper-plane"></i> ENVIAR COMUNICAÇÃO
+                </button>
+            </form>
+            
+            <div class="mt-12 pt-8 border-t border-gray-800 flex flex-col items-center">
+                <p class="text-gray-500 text-sm mb-6">Ou conecte-se através das redes:</p>
+                <div class="flex gap-6">
+                    <a href="https://instagram.com/jhonatansantyago" target="_blank" class="w-12 h-12 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-gradient-to-tr hover:from-purple-600 hover:to-orange-500 transition-all shadow-lg hover:scale-110">
+                        <i class="fa-brands fa-instagram text-xl"></i>
+                    </a>
+                    <a href="#" class="w-12 h-12 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-[#0077b5] transition-all shadow-lg hover:scale-110">
+                        <i class="fa-brands fa-linkedin-in text-xl"></i>
+                    </a>
+                    <a href="#" class="w-12 h-12 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-blue-500 transition-all shadow-lg hover:scale-110">
+                        <i class="fa-brands fa-twitter text-xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="border-t border-gray-800 bg-[#020408] relative z-10 py-8">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-xs font-mono text-gray-600">
+            <div class="mb-4 md:mb-0 text-center md:text-left">
+                <p class="text-gray-400 mb-1">JHONATAN SANTIAGO • PERITO OFICIAL CRIMINAL</p>
+                <p>&copy; 2026. Todos os direitos reservados. Goiás, Brasil.</p>
+            </div>
+            
+            <div class="text-center md:text-right max-w-sm flex flex-col items-center md:items-end gap-2">
+                <p class="opacity-60">Aviso Legal: As opiniões expressas neste site são de cunho estritamente pessoal e acadêmico, não refletindo necessariamente o posicionamento oficial da Polícia Científica de Goiás.</p>
+                <button onclick="checkAdminAccess()" class="text-gray-700 hover:text-blue-500 transition-colors mt-2 font-bold tracking-wider" title="Gerenciar Conteúdo do Site"><i class="fa-solid fa-terminal"></i> ACESSO AO SISTEMA</button>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Typing effect tailored for forensic tech
+            new Typed('#typed-text', {
+                strings: [
+                    'Investigação Cibernética', 
+                    'Análise de Dispositivos Móveis', 
+                    'Engenharia Reversa de Malware',
+                    'Inteligência em Fontes Abertas (OSINT)'
+                ],
+                typeSpeed: 40,
+                backSpeed: 20,
+                backDelay: 3000,
+                loop: true,
+                cursorChar: '█'
+            });
+
+            // Particles configured to look like a data node network
+            particlesJS("particles-js", {
+                "particles": {
+                    "number": { "value": 50, "density": { "enable": true, "value_area": 800 } },
+                    "color": { "value": "#1d4ed8" }, // Blue
+                    "shape": { "type": "circle" },
+                    "opacity": { "value": 0.4, "random": true, "anim": { "enable": true, "speed": 1, "opacity_min": 0.1, "sync": false } },
+                    "size": { "value": 2, "random": true, "anim": { "enable": false } },
+                    "line_linked": { "enable": true, "distance": 150, "color": "#38bdf8", "opacity": 0.15, "width": 1 },
+                    "move": { "enable": true, "speed": 1, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false }
+                },
+                "interactivity": {
+                    "detect_on": "canvas",
+                    "events": {
+                        "onhover": { "enable": true, "mode": "grab" },
+                        "onclick": { "enable": true, "mode": "push" },
+                        "resize": true
+                    },
+                    "modes": {
+                        "grab": { "distance": 180, "line_linked": { "opacity": 0.4, "color": "#38bdf8" } },
+                        "push": { "particles_nb": 3 }
+                    }
+                },
+                "retina_detect": true
+            });
+
+            // Scroll animations for a smooth reveal
+            const sr = ScrollReveal({
+                origin: 'bottom',
+                distance: '30px',
+                duration: 800,
+                delay: 100,
+                easing: 'cubic-bezier(0.5, 0, 0, 1)'
+            });
+
+            sr.reveal('.reveal-hero', { origin: 'top', distance: '10px' });
+            sr.reveal('.reveal-bottom', { interval: 100 });
+            sr.reveal('.reveal-left', { origin: 'left', distance: '40px', interval: 150 });
+            sr.reveal('.reveal-right', { origin: 'right', distance: '40px' });
+            sr.reveal('.reveal-card', { interval: 150 });
+
+            // Make navbar solid on scroll
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 30) {
+                    navbar.style.background = 'rgba(3, 7, 18, 0.95)';
+                    navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.5)';
+                } else {
+                    navbar.style.background = 'rgba(3, 7, 18, 0.85)';
+                    navbar.style.boxShadow = 'none';
+                }
+            });
+        });
+    </script>
+
+    
+    <!-- Modal de Mensagem do Sistema -->
+    <div id="msg-modal" class="hidden fixed inset-0 z-[100] bg-black/80 backdrop-blur items-center justify-center p-4">
+        <div class="glass-card max-w-md w-full p-6 rounded-lg modal-enter border border-blue-500/30 shadow-[0_0_30px_rgba(29,78,216,0.2)]">
+            <h4 id="msg-title" class="text-xl font-bold text-white mb-2 font-mono"><i class="fa-solid fa-circle-exclamation text-blue-500 mr-2"></i>Aviso do Sistema</h4>
+            <p id="msg-content" class="text-gray-300 mb-6"></p>
+            <div class="flex justify-end">
+                <button onclick="closeMsgModal()" class="bg-blue-600 hover:bg-blue-500 text-white px-6 py-2 rounded font-medium transition-colors">Confirmar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Gerenciamento de Casos -->
+    <div id="case-modal" class="hidden fixed inset-0 z-[100] bg-black/80 backdrop-blur items-center justify-center p-4 overflow-y-auto">
+        <div class="glass-card max-w-2xl w-full p-6 rounded-lg modal-enter border border-blue-500/30 my-8 shadow-[0_0_40px_rgba(29,78,216,0.3)]">
+            <h4 id="case-modal-title" class="text-2xl font-bold text-white mb-6 border-b border-gray-800 pb-3">Adicionar Caso Investigativo</h4>
+            <form id="case-form" class="space-y-4">
+                <input type="hidden" id="case-id">
+                <div>
+                    <label class="block text-xs font-mono text-gray-400 mb-1 tracking-wider uppercase">Título Principal</label>
+                    <input type="text" id="case-title" required class="w-full bg-gray-900/50 border border-gray-700 rounded px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors">
+                </div>
+                <div>
+                    <label class="block text-xs font-mono text-gray-400 mb-1 tracking-wider uppercase">Descrição Técnica (Resumo)</label>
+                    <textarea id="case-desc" required rows="4" class="w-full bg-gray-900/50 border border-gray-700 rounded px-4 py-3 text-white focus:outline-none focus:border-blue-500 resize-none transition-colors"></textarea>
+                </div>
+                <div>
+                    <label class="block text-xs font-mono text-gray-400 mb-1 tracking-wider uppercase">URL da Imagem Ilustrativa</label>
+                    <input type="url" id="case-img" required class="w-full bg-gray-900/50 border border-gray-700 rounded px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors" placeholder="https://images.unsplash.com/...">
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-mono text-gray-400 mb-1 tracking-wider uppercase">Status da Investigação</label>
+                        <select id="case-status" class="w-full bg-gray-900/50 border border-gray-700 rounded px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors cursor-pointer">
+                            <option value="Encerrado">Encerrado</option>
+                            <option value="Em Andamento">Em Andamento</option>
+                            <option value="Em Julgamento">Em Julgamento</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-mono text-gray-400 mb-1 tracking-wider uppercase">Tag da Operação (Badge)</label>
+                        <input type="text" id="case-op" required class="w-full bg-gray-900/50 border border-gray-700 rounded px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors" placeholder="Ex: OPERAÇÃO: SHADOW">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-mono text-gray-400 mb-1 tracking-wider uppercase">Metodologias / Tags (separadas por vírgula)</label>
+                    <input type="text" id="case-tags" class="w-full bg-gray-900/50 border border-gray-700 rounded px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors" placeholder="Eng. Reversa, OSINT, Blockchain">
+                </div>
+                <div class="flex justify-end gap-3 pt-6 mt-4 border-t border-gray-800">
+                    <button type="button" onclick="closeCaseModal()" class="px-6 py-2 border border-gray-600 text-gray-300 rounded hover:bg-gray-800 transition-colors font-medium">Cancelar</button>
+                    <button type="submit" class="px-6 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded shadow-lg transition-colors font-medium flex items-center gap-2"><i class="fa-solid fa-floppy-disk"></i> Gravar Registro</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal de Gerenciamento de Artigos -->
+    <div id="post-modal" class="hidden fixed inset-0 z-[100] bg-black/80 backdrop-blur items-center justify-center p-4 overflow-y-auto">
+        <div class="glass-card max-w-2xl w-full p-6 rounded-lg modal-enter border border-blue-500/30 my-8 shadow-[0_0_40px_rgba(29,78,216,0.3)]">
+            <h4 id="post-modal-title" class="text-2xl font-bold text-white mb-6 border-b border-gray-800 pb-3">Publicar Artigo / Debate</h4>
+            <form id="post-form" class="space-y-4">
+                <input type="hidden" id="post-id">
+                <div>
+                    <label class="block text-xs font-mono text-gray-400 mb-1 tracking-wider uppercase">Título do Artigo</label>
+                    <input type="text" id="post-title" required class="w-full bg-gray-900/50 border border-gray-700 rounded px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors">
+                </div>
+                <div>
+                    <label class="block text-xs font-mono text-gray-400 mb-1 tracking-wider uppercase">Resumo / Argumento</label>
+                    <textarea id="post-excerpt" required rows="4" class="w-full bg-gray-900/50 border border-gray-700 rounded px-4 py-3 text-white focus:outline-none focus:border-blue-500 resize-none transition-colors"></textarea>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-mono text-gray-400 mb-1 tracking-wider uppercase">Data (Ex: 12 Mai 2026)</label>
+                        <input type="text" id="post-date" required class="w-full bg-gray-900/50 border border-gray-700 rounded px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-mono text-gray-400 mb-1 tracking-wider uppercase">Categoria</label>
+                        <input type="text" id="post-category" required class="w-full bg-gray-900/50 border border-gray-700 rounded px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors" placeholder="Ex: Estudo de Ferramenta">
+                    </div>
+                </div>
+                <div class="flex justify-end gap-3 pt-6 mt-4 border-t border-gray-800">
+                    <button type="button" onclick="closePostModal()" class="px-6 py-2 border border-gray-600 text-gray-300 rounded hover:bg-gray-800 transition-colors font-medium">Cancelar</button>
+                    <button type="submit" class="px-6 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded shadow-lg transition-colors font-medium flex items-center gap-2"><i class="fa-solid fa-paper-plane"></i> Publicar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, doc, setDoc, deleteDoc, onSnapshot, collection, addDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        // Environment configs injected by Canvas
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {};
+        
+        // Expose Modal functions globally so inline HTML onclicks work
+        window.showMsg = (title, content) => {
+            document.getElementById('msg-title').innerHTML = `<i class="fa-solid fa-circle-exclamation text-blue-500 mr-2"></i>${title}`;
+            document.getElementById('msg-content').innerText = content;
+            document.getElementById('msg-modal').style.display = 'flex';
+        };
+        window.closeMsgModal = () => document.getElementById('msg-modal').style.display = 'none';
+        
+        window.openCaseModal = (id = '') => {
+            document.getElementById('case-id').value = id;
+            document.getElementById('case-modal-title').innerText = id ? 'Atualizar Caso Investigativo' : 'Adicionar Caso Investigativo';
+            if(!id) document.getElementById('case-form').reset();
+            document.getElementById('case-modal').style.display = 'flex';
+        };
+        window.closeCaseModal = () => document.getElementById('case-modal').style.display = 'none';
+
+        window.openPostModal = (id = '') => {
+            document.getElementById('post-id').value = id;
+            document.getElementById('post-modal-title').innerText = id ? 'Editar Publicação' : 'Publicar Artigo / Debate';
+            if(!id) document.getElementById('post-form').reset();
+            document.getElementById('post-modal').style.display = 'flex';
+        };
+        window.closePostModal = () => document.getElementById('post-modal').style.display = 'none';
+
+        window.isAdmin = false;
+        
+        window.checkAdminAccess = () => {
+            if(window.isAdmin) {
+                window.showMsg("Sistema Acessado", "Você já está logado com credenciais de administrador. Utilize os botões azuis 'Novo' nas seções e os ícones de edição nos cartões para gerenciar.");
+            } else {
+                window.showMsg("Acesso Restrito", "Acesso Negado. Apenas o proprietário do portfólio (Jhonatan Santiago) possui a chave criptográfica (token) necessária para gerenciar o conteúdo no banco de dados.");
+            }
+        };
+
+        let app, db, auth;
+        try {
+            app = initializeApp(firebaseConfig);
+            db = getFirestore(app);
+            auth = getAuth(app);
+        } catch (e) {
+            console.error("Erro na inicialização do Firebase", e);
+        }
+
+        // Arrays para manter estado em memória
+        let casesData = [];
+        let postsData = [];
+
+        async function initAuthAndDB() {
+            try {
+                // Checa se o usuário atual é o dono do imersivo (via token)
+                if (typeof __initial_auth_token !== 'undefined') {
+                    await signInWithCustomToken(auth, __initial_auth_token);
+                    window.isAdmin = true;
+                    // Mostra todos os botões de administração
+                    document.querySelectorAll('.admin-only').forEach(el => el.style.display = 'inline-flex');
+                } else {
+                    await signInAnonymously(auth);
+                }
+                
+                // Listener em Tempo Real para Casos (Casos Públicos da Aplicação)
+                const casesRef = collection(db, 'artifacts', appId, 'public', 'data', 'cases');
+                onSnapshot(casesRef, (snapshot) => {
+                    casesData = [];
+                    snapshot.forEach(doc => casesData.push({id: doc.id, ...doc.data()}));
+                    casesData.sort((a, b) => b.createdAt - a.createdAt); // Ordena mais novos primeiro
+                    
+                    if(casesData.length === 0) {
+                        seedInitialCases(); // Popula o banco se estiver vazio na primeira vez
+                    } else {
+                        renderCases();
+                    }
+                }, (err) => console.error("Erro ao ler casos:", err));
+
+                // Listener em Tempo Real para Artigos (Posts Públicos)
+                const postsRef = collection(db, 'artifacts', appId, 'public', 'data', 'posts');
+                onSnapshot(postsRef, (snapshot) => {
+                    postsData = [];
+                    snapshot.forEach(doc => postsData.push({id: doc.id, ...doc.data()}));
+                    postsData.sort((a, b) => b.createdAt - a.createdAt);
+                    
+                    if(postsData.length === 0) {
+                        seedInitialPosts();
+                    } else {
+                        renderPosts();
+                    }
+                }, (err) => console.error("Erro ao ler artigos:", err));
+
+            } catch(e) {
+                console.error("Erro no Auth Flow:", e);
+            }
+        }
+
+        // Retorna o HTML do selo baseado no status, preservando cores do Tailwind
+        function getStatusHTML(status) {
+            if(status === 'Em Andamento') return `<div class="absolute top-4 right-4 bg-yellow-900/80 text-yellow-300 text-[0.6rem] font-bold px-2 py-1 border border-yellow-700 rounded uppercase tracking-wider flex items-center gap-1 z-10 backdrop-blur-sm"><i class="fa-solid fa-spinner fa-spin"></i> Em Andamento</div>`;
+            if(status === 'Em Julgamento') return `<div class="absolute top-4 right-4 bg-orange-900/80 text-orange-300 text-[0.6rem] font-bold px-2 py-1 border border-orange-700 rounded uppercase tracking-wider flex items-center gap-1 z-10 backdrop-blur-sm"><i class="fa-solid fa-scale-balanced"></i> Em Julgamento</div>`;
+            return `<div class="absolute top-4 right-4 bg-red-900/80 text-red-300 text-[0.6rem] font-bold px-2 py-1 border border-red-700 rounded uppercase tracking-wider flex items-center gap-1 z-10 backdrop-blur-sm"><i class="fa-solid fa-lock"></i> Encerrado</div>`;
+        }
+
+        function renderCases() {
+            const grid = document.getElementById('cases-grid');
+            if(casesData.length === 0) {
+                grid.innerHTML = '<p class="col-span-full text-center text-gray-500 font-mono py-8">NENHUM REGISTRO ENCONTRADO NO BANCO DE DADOS.</p>';
+                return;
+            }
+            
+            let html = '';
+            casesData.forEach(c => {
+                // Injeta controles se for Admin
+                const adminControls = window.isAdmin ? `
+                    <div class="absolute top-4 left-4 z-20 flex gap-2">
+                        <button onclick="editCase('${c.id}')" class="bg-blue-600 hover:bg-blue-500 text-white w-8 h-8 rounded flex items-center justify-center shadow backdrop-blur transition-all" title="Editar"><i class="fa-solid fa-pen text-xs"></i></button>
+                        <button onclick="deleteDocItem('cases', '${c.id}')" class="bg-red-600 hover:bg-red-500 text-white w-8 h-8 rounded flex items-center justify-center shadow backdrop-blur transition-all" title="Deletar"><i class="fa-solid fa-trash text-xs"></i></button>
+                    </div>
+                ` : '';
+
+                const tagsHtml = c.tags ? c.tags.map(tag => `<span class="text-xs text-gray-500 font-mono"><i class="fa-solid fa-tag text-blue-500/50"></i> ${tag.trim()}</span>`).join('') : '';
+
+                html += `
+                    <div class="glass-card rounded-lg overflow-hidden flex flex-col group transition-all transform duration-300">
+                        <div class="h-56 relative border-b border-gray-800 overflow-hidden bg-gray-900">
+                            ${adminControls}
+                            <img src="${c.imageUrl}" alt="${c.title}" class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-70 transition-all duration-700 transform group-hover:scale-110" onerror="this.src='https://placehold.co/800x400/0f172a/38bdf8?text=FOTO+INDISPONÍVEL'">
+                            <div class="absolute inset-0 bg-gradient-to-t from-[var(--card-bg)] via-transparent to-transparent"></div>
+                            ${getStatusHTML(c.status)}
+                            <div class="absolute bottom-4 left-4 z-10">
+                                <span class="bg-blue-900/80 text-blue-200 text-xs px-2 py-1 font-mono rounded backdrop-blur-md border border-blue-500/30 shadow-lg">${c.operation}</span>
+                            </div>
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col relative z-10 bg-gray-900/30">
+                            <h4 class="text-xl font-bold mb-2 group-hover:text-blue-400 transition-colors">${c.title}</h4>
+                            <p class="text-gray-400 text-sm mb-6 flex-grow">${c.description}</p>
+                            <div class="flex justify-between items-center mt-auto pt-4 border-t border-gray-800">
+                                <div class="flex flex-wrap gap-3">
+                                    ${tagsHtml}
+                                </div>
+                                <button class="text-blue-400 hover:text-white text-sm font-medium transition-colors flex items-center gap-2 flex-shrink-0">
+                                    Ver Resumo <i class="fa-solid fa-arrow-right text-xs"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+            grid.innerHTML = html;
+        }
+
+        function renderPosts() {
+            const grid = document.getElementById('posts-grid');
+            if(postsData.length === 0) {
+                grid.innerHTML = '<p class="text-center text-gray-500 font-mono py-8">NENHUMA PUBLICAÇÃO ENCONTRADA.</p>';
+                return;
+            }
+
+            let html = '';
+            postsData.forEach((p, idx) => {
+                const adminControls = window.isAdmin ? `
+                    <div class="absolute top-4 right-4 flex gap-2 z-20">
+                        <button onclick="editPost('${p.id}')" class="text-blue-400 hover:bg-blue-900/30 w-8 h-8 rounded flex items-center justify-center border border-transparent hover:border-blue-500/30 transition-all"><i class="fa-solid fa-pen text-xs"></i></button>
+                        <button onclick="deleteDocItem('posts', '${p.id}')" class="text-red-500 hover:bg-red-900/30 w-8 h-8 rounded flex items-center justify-center border border-transparent hover:border-red-500/30 transition-all"><i class="fa-solid fa-trash text-xs"></i></button>
+                    </div>
+                ` : '';
+
+                html += `
+                    <article class="glass-card p-6 rounded-lg relative transition-all duration-300 hover:transform hover:translate-x-2">
+                        ${adminControls}
+                        <div class="flex flex-col md:flex-row gap-6">
+                            <div class="flex-grow pr-16 md:pr-8">
+                                <div class="flex items-center gap-3 mb-3 text-xs font-mono text-gray-500">
+                                    <span><i class="fa-regular fa-calendar text-blue-400"></i> ${p.date}</span>
+                                    <span>•</span>
+                                    <span class="text-blue-400 bg-blue-900/20 px-2 py-0.5 rounded">${p.category}</span>
+                                </div>
+                                <h4 class="text-xl font-bold mb-3 hover:text-blue-400 transition-colors cursor-pointer">${p.title}</h4>
+                                <p class="text-gray-400 text-sm mb-4 line-clamp-2">${p.excerpt}</p>
+                            </div>
+                            <div class="md:w-48 flex-shrink-0 flex flex-col justify-between items-end border-l border-gray-800 pl-6 hidden md:flex">
+                                <div class="text-center">
+                                    <div class="text-2xl font-bold text-white"><i class="fa-regular fa-comments text-gray-500 text-lg mr-2"></i>${p.comments || 0}</div>
+                                    <div class="text-[0.65rem] uppercase font-mono text-gray-500 mt-1">Comentários</div>
+                                </div>
+                                <button class="text-xs font-mono border border-gray-600 hover:border-blue-400 hover:text-blue-400 px-3 py-1.5 rounded transition-colors bg-black/40">Participar da Discussão</button>
+                            </div>
+                        </div>
+                    </article>
+                `;
+            });
+            grid.innerHTML = html;
+        }
+
+        window.editCase = (id) => {
+            const c = casesData.find(x => x.id === id);
+            if(c) {
+                document.getElementById('case-title').value = c.title;
+                document.getElementById('case-desc').value = c.description;
+                document.getElementById('case-img').value = c.imageUrl;
+                document.getElementById('case-status').value = c.status;
+                document.getElementById('case-op').value = c.operation;
+                document.getElementById('case-tags').value = c.tags ? c.tags.join(', ') : '';
+                openCaseModal(id);
+            }
+        };
+
+        window.editPost = (id) => {
+            const p = postsData.find(x => x.id === id);
+            if(p) {
+                document.getElementById('post-title').value = p.title;
+                document.getElementById('post-excerpt').value = p.excerpt;
+                document.getElementById('post-date').value = p.date;
+                document.getElementById('post-category').value = p.category;
+                openPostModal(id);
+            }
+        };
+
+        window.deleteDocItem = async (collectionName, id) => {
+            if(!auth.currentUser || !window.isAdmin) return;
+            // Deleção direta (substituindo o uso proibido de confirm())
+            try {
+                await deleteDoc(doc(db, 'artifacts', appId, 'public', 'data', collectionName, id));
+                window.showMsg("Exclusão de Dados", "O registro foi deletado de forma permanente do banco de dados da aplicação.");
+            } catch(e) {
+                window.showMsg("Falha na Operação", "Não foi possível remover o registro: " + e.message);
+            }
+        };
+
+        document.getElementById('case-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            if(!auth.currentUser || !window.isAdmin) return;
+            
+            const btn = e.target.querySelector('button[type="submit"]');
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Processando...';
+            btn.disabled = true;
+
+            const id = document.getElementById('case-id').value;
+            const data = {
+                title: document.getElementById('case-title').value,
+                description: document.getElementById('case-desc').value,
+                imageUrl: document.getElementById('case-img').value,
+                status: document.getElementById('case-status').value,
+                operation: document.getElementById('case-op').value,
+                tags: document.getElementById('case-tags').value.split(',').map(s => s.trim()).filter(s => s),
+                updatedAt: Date.now()
+            };
+
+            try {
+                if(id) {
+                    await setDoc(doc(db, 'artifacts', appId, 'public', 'data', 'cases', id), data, {merge: true});
+                } else {
+                    data.createdAt = Date.now();
+                    await addDoc(collection(db, 'artifacts', appId, 'public', 'data', 'cases'), data);
+                }
+                closeCaseModal();
+                window.showMsg("Gravação Completa", "As informações do caso foram registradas na base de dados com sucesso.");
+            } catch(err) {
+                window.showMsg("Falha de Gravação", "Erro ao gravar dados: " + err.message);
+            } finally {
+                btn.innerHTML = '<i class="fa-solid fa-floppy-disk"></i> Gravar Registro';
+                btn.disabled = false;
+            }
+        });
+
+        document.getElementById('post-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            if(!auth.currentUser || !window.isAdmin) return;
+            
+            const btn = e.target.querySelector('button[type="submit"]');
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Publicando...';
+            btn.disabled = true;
+
+            const id = document.getElementById('post-id').value;
+            const data = {
+                title: document.getElementById('post-title').value,
+                excerpt: document.getElementById('post-excerpt').value,
+                date: document.getElementById('post-date').value,
+                category: document.getElementById('post-category').value,
+                updatedAt: Date.now()
+            };
+
+            try {
+                if(id) {
+                    await setDoc(doc(db, 'artifacts', appId, 'public', 'data', 'posts', id), data, {merge: true});
+                } else {
+                    data.createdAt = Date.now();
+                    data.comments = Math.floor(Math.random() * 5); // Simula início
+                    await addDoc(collection(db, 'artifacts', appId, 'public', 'data', 'posts'), data);
+                }
+                closePostModal();
+                window.showMsg("Publicação Concluída", "O artigo técnico foi sincronizado com o banco de dados.");
+            } catch(err) {
+                window.showMsg("Falha na Publicação", "Erro ao postar: " + err.message);
+            } finally {
+                btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Publicar';
+                btn.disabled = false;
+            }
+        });
+
+        async function seedInitialCases() {
+            if(!auth.currentUser || !window.isAdmin) return;
+            const initialCases = [
+                {
+                    title: "Desarticulação de Esquema de Ransomware",
+                    description: "Análise de servidores comprometidos para identificar o vetor de entrada inicial. Realizada engenharia reversa do payload malicioso que permitiu encontrar a chave de decriptação simétrica em memória (RAM), recuperando os dados da instituição vítima sem o pagamento do resgate.",
+                    imageUrl: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=800",
+                    status: "Encerrado",
+                    operation: "OPERAÇÃO: <span class='redacted'>SHADOW</span>",
+                    tags: ["Eng. Reversa"],
+                    createdAt: Date.now() - 4000
+                },
+                {
+                    title: "Rastreamento de Criptoativos Ocultos",
+                    description: "Investigação de esquema de pirâmide financeira onde os fundos foram convertidos em criptomoedas. Utilização de técnicas de OSINT e análise de blockchain para mapear a clusterização de carteiras e rastrear a lavagem de dinheiro através de mixers, auxiliando no bloqueio judicial.",
+                    imageUrl: "https://images.unsplash.com/photo-1621416894569-0f39ed31d247?auto=format&fit=crop&q=80&w=800",
+                    status: "Em Andamento",
+                    operation: "CASO: FRAUDE FINANCEIRA",
+                    tags: ["Blockchain", "OSINT"],
+                    createdAt: Date.now() - 3000
+                },
+                {
+                    title: "Extração Física Avançada (Chip-Off)",
+                    description: "Atuação em dispositivo móvel severamente danificado de forma intencional pelo suspeito durante cumprimento de mandado. Realizada a técnica de Chip-Off para leitura direta do chip de memória eMMC, permitindo a recuperação do banco de dados de mensagens deletadas e desarticulando a rede de distribuição.",
+                    imageUrl: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800",
+                    status: "Encerrado",
+                    operation: "OPERAÇÃO: <span class='redacted'>NEXUS</span>",
+                    tags: ["Hard. Forensics"],
+                    createdAt: Date.now() - 2000
+                },
+                {
+                    title: "Exfiltração e Esteganografia",
+                    description: "Análise de artefatos de sistema operacional e logs de firewall corporativo para rastrear o vazamento de segredos industriais. Foi identificada a utilização de técnicas de esteganografia para ocultar plantas de engenharia dentro de imagens (JPEG) anexadas em e-mails enviados à concorrência.",
+                    imageUrl: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800",
+                    status: "Em Julgamento",
+                    operation: "CASO: ESPIONAGEM INDUSTRIAL",
+                    tags: ["Net. Forensics"],
+                    createdAt: Date.now() - 1000
+                }
+            ];
+            
+            for(const c of initialCases) {
+                await addDoc(collection(db, 'artifacts', appId, 'public', 'data', 'cases'), c);
+            }
+        }
+
+        async function seedInitialPosts() {
+            if(!auth.currentUser || !window.isAdmin) return;
+            const initialPosts = [
+                {
+                    title: "A Cadeia de Custódia frente ao uso de Armazenamento em Nuvem",
+                    excerpt: "Como garantir a integridade e a admissibilidade legal de evidências extraídas diretamente de provedores de serviço em nuvem (Google Workspace, iCloud, AWS) frente às atualizações do Pacote Anticrime (Lei 13.964/19).",
+                    date: "12 Mai 2026",
+                    category: "Artigo Técnico",
+                    comments: 24,
+                    createdAt: Date.now() - 2000
+                },
+                {
+                    title: "Artefatos do Windows 11: O que mudou para a Forense?",
+                    excerpt: "Uma análise profunda das alterações no Registro, Prefetch, SRUM e novos recursos do Windows 11 que impactam diretamente a timeline de atividades do usuário em uma investigação.",
+                    date: "28 Abr 2026",
+                    category: "Estudo de Ferramenta",
+                    comments: 18,
+                    createdAt: Date.now() - 1000
+                }
+            ];
+            for(const p of initialPosts) {
+                await addDoc(collection(db, 'artifacts', appId, 'public', 'data', 'posts'), p);
+            }
+        }
+
+        // Inicia
+        initAuthAndDB();
+    </script>
+</body>
+</html>
