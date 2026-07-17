@@ -78,9 +78,3 @@ content:
       - name: content
         label: Conteúdo do Artigo
         type: rich-text
-```eof
-
-### Passo a Passo para conferir:
-1. Salve o arquivo `.pages.yml` com o código acima no GitHub.
-2. Dê um **F5** no Pages CMS.
-3. Agora o CMS irá ler os arquivos `casos.json` e `artigos.json` diretamente como listas planas de itens. Você verá a listagem de todos os seus 4 casos e 3 artigos na tela prontos para edição, adição ou remoção!
