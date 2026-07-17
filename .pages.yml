@@ -48,7 +48,7 @@ content:
         label: Visibilidade
         type: select
         options:
-          - PUBLICO
+          - PÚBLICO
           - RESTRITO
       - name: visColor
         label: Cor da Visibilidade
@@ -61,10 +61,10 @@ content:
         type: image
       - name: metodologia
         label: Metodologia Aplicada
-        type: code
+        type: rich-text
       - name: resultado
         label: Resultado Pericial
-        type: code
+        type: rich-text
 
   - name: artigos
     label: Artigos e Debates
@@ -92,14 +92,11 @@ content:
         label: Descrição
         type: text
       - name: content
-        label: Conteúdo HTML
-        type: code
+        label: Conteúdo do Artigo
+        type: rich-text
 ```eof
 
-### O que mudou e por que agora vai funcionar?
-*   A chave **`type: collection`** (que espera uma pasta) foi trocada para **`type: file`** (que espera um arquivo único).
-*   A chave **`list: true`** foi adicionada logo abaixo do caminho do arquivo. Isso diz ao CMS: "Este arquivo é apenas uma grande lista de objetos. Deixe o usuário adicionar ou remover blocos dentro dela".
+4.  **Salve** (Commit changes).
+5.  Dê um **F5** forte no Pages CMS (você pode precisar limpar o cache ou clicar em "Go home" e tentar de novo).
 
-Com essa configuração, o CMS vai encontrar seus arquivos `casos.json` e `artigos.json` com sucesso, ler a lista que está lá dentro (que você criou usando meus códigos anteriores) e abrir a interface corretamente, sem esperar por uma pasta (directory entries).
-
-Basta comitar (salvar) o `.pages.yml` e dar F5 no painel do Pages CMS!
+Agora, em vez do erro, você deve ver os seus formulários abrindo lindamente, e os campos "Metodologia", "Resultado" e "Conteúdo" aparecerão como caixas de edição de texto onde você pode colocar negrito, links e parágrafos de forma fácil!
