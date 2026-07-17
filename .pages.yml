@@ -1,1 +1,83 @@
-media:input: imagensoutput: /imagenscontent:name: casoslabel: Investigações / Casostype: collectionpath: casos.jsonformat: jsonfields:name: idlabel: Número do Caso (Ex: CASE_001)type: stringname: titulolabel: Título do Casotype: stringname: categorialabel: Categoria Técnicatype: stringname: statuslabel: Statustype: selectoptions:ResolvidoEm Análisename: sistemalabel: Sistema Analisado (Ex: Windows, Mobile)type: stringname: data_fechamentolabel: Data de Fechamentotype: stringname: imagemlabel: Imagem de Capatype: imagename: descricaolabel: Descrição Resumida (Para a home)type: textname: metodologialabel: Metodologia Aplicada (Use formato HTML: Texto)type: codename: resultadolabel: Resultado Pericial (Use formato HTML)type: codename: artigoslabel: Artigos e Debatestype: collectionpath: artigos.jsonformat: jsonfields:name: titulolabel: Título do Artigotype: stringname: categorialabel: Tag (Ex: Estudo de Caso)type: stringname: datalabel: Data de Publicaçãotype: stringname: tempo_leituralabel: Tempo de Leitura (em Minutos)type: stringname: autorlabel: Autortype: stringdefault: "Jhonatan Santiago"name: imagemlabel: Imagem de Capatype: imagename: descricaolabel: Descrição Resumidatype: textname: conteudolabel: Conteúdo do Artigo (Use HTML)type: code
+media:
+  input: imagens
+  output: /imagens
+
+content:
+  - name: casos
+    label: Investigações / Casos
+    type: collection
+    path: casos.json
+    format: json
+    list: true
+    fields:
+      - name: id
+        label: Número do Caso (Ex: CASE_001)
+        type: string
+      - name: category
+        label: Categoria Técnica
+        type: string
+      - name: title
+        label: Título do Caso
+        type: string
+      - name: description
+        label: Descrição Resumida (Para a home)
+        type: text
+      - name: system
+        label: Sistema Analisado (Ex: Windows, Mobile)
+        type: string
+      - name: statusVal
+        label: Status
+        type: select
+        options:
+          - Resolvido
+          - Em Análise
+      - name: statusTag
+        label: Etiqueta de Status (Resolvido, Em Andamento)
+        type: string
+      - name: statusColor
+        label: Cor do Status (green, yellow, red)
+        type: string
+      - name: visibility
+        label: Visibilidade (PÚBLICO, RESTRITO)
+        type: string
+      - name: visColor
+        label: Cor da Visibilidade (cyan, red)
+        type: string
+      - name: img
+        label: Imagem de Capa
+        type: image
+      - name: metodologia
+        label: Metodologia Aplicada
+        type: text
+      - name: resultado
+        label: Resultado Pericial
+        type: text
+
+  - name: artigos
+    label: Artigos e Debates
+    type: collection
+    path: artigos.json
+    format: json
+    list: true
+    fields:
+      - name: id
+        label: Identificador / Código (Ex: L0G_2024.10.15)
+        type: string
+      - name: title
+        label: Título do Artigo
+        type: string
+      - name: category
+        label: Categoria
+        type: string
+      - name: readTime
+        label: Tempo de Leitura (Ex: 5 min de leitura)
+        type: string
+      - name: img
+        label: Imagem de Capa
+        type: image
+      - name: description
+        label: Descrição Resumida
+        type: text
+      - name: content
+        label: Conteúdo do Artigo (Aceita tags HTML <p>, <h3>)
+        type: text
