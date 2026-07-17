@@ -5,79 +5,96 @@ media:
 content:
   - name: casos
     label: Investigações / Casos
-    type: collection
+    type: file
     path: casos.json
     format: json
-    list: true
     fields:
-      - name: id
-        label: Número do Caso (Ex: CASE_001)
-        type: string
-      - name: category
-        label: Categoria Técnica
-        type: string
-      - name: title
-        label: Título do Caso
-        type: string
-      - name: description
-        label: Descrição Resumida (Para a home)
-        type: text
-      - name: system
-        label: Sistema Analisado (Ex: Windows, Mobile)
-        type: string
-      - name: statusVal
-        label: Status
-        type: select
-        options:
-          - Resolvido
-          - Em Análise
-      - name: statusTag
-        label: Etiqueta de Status (Resolvido, Em Andamento)
-        type: string
-      - name: statusColor
-        label: Cor do Status (green, yellow, red)
-        type: string
-      - name: visibility
-        label: Visibilidade (PÚBLICO, RESTRITO)
-        type: string
-      - name: visColor
-        label: Cor da Visibilidade (cyan, red)
-        type: string
-      - name: img
-        label: Imagem de Capa
-        type: image
-      - name: metodologia
-        label: Metodologia Aplicada
-        type: text
-      - name: resultado
-        label: Resultado Pericial
-        type: text
+      - name: casos
+        label: Lista de Casos
+        type: object
+        list: true
+        fields:
+          - name: id
+            label: Número do Caso (Ex: CASE_001)
+            type: string
+          - name: category
+            label: Categoria Técnica
+            type: string
+          - name: title
+            label: Título do Caso
+            type: string
+          - name: description
+            label: Descrição Resumida (Para a home)
+            type: text
+          - name: system
+            label: Sistema Analisado (Ex: Windows, Mobile)
+            type: string
+          - name: statusVal
+            label: Status
+            type: string
+          - name: statusTag
+            label: Etiqueta de Status (Resolvido, Em Andamento)
+            type: string
+          - name: statusColor
+            label: Cor do Status (green, yellow, red)
+            type: string
+          - name: visibility
+            label: Visibilidade (PÚBLICO, RESTRITO)
+            type: string
+          - name: visColor
+            label: Cor da Visibilidade (cyan, red)
+            type: string
+          - name: img
+            label: Imagem de Capa
+            type: image
+          - name: metodologia
+            label: Metodologia Aplicada
+            type: text
+          - name: resultado
+            label: Resultado Pericial
+            type: text
 
   - name: artigos
     label: Artigos e Debates
-    type: collection
+    type: file
     path: artigos.json
     format: json
-    list: true
     fields:
-      - name: id
-        label: Identificador / Código (Ex: L0G_2024.10.15)
-        type: string
-      - name: title
-        label: Título do Artigo
-        type: string
-      - name: category
-        label: Categoria
-        type: string
-      - name: readTime
-        label: Tempo de Leitura (Ex: 5 min de leitura)
-        type: string
-      - name: img
-        label: Imagem de Capa
-        type: image
-      - name: description
-        label: Descrição Resumida
-        type: text
-      - name: content
-        label: Conteúdo do Artigo (Aceita tags HTML <p>, <h3>)
-        type: text
+      - name: artigos
+        label: Lista de Artigos
+        type: object
+        list: true
+        fields:
+          - name: id
+            label: Identificador / Código (Ex: L0G_2024.10.15)
+            type: string
+          - name: title
+            label: Título do Artigo
+            type: string
+          - name: category
+            label: Categoria
+            type: string
+          - name: readTime
+            label: Tempo de Leitura (Ex: 5 min de leitura)
+            type: string
+          - name: img
+            label: Imagem de Capa
+            type: image
+          - name: description
+            label: Descrição Resumida
+            type: text
+          - name: content
+            label: Conteúdo do Artigo (HTML permitido)
+            type: text
+```eof
+
+### 2. O que mudou nesta correção?
+
+1.  **Formatação Estrita:** Garanti que todos os espaços (indentações) estão perfeitamente alinhados, que era o motivo das "cobrinhas vermelhas" que vi no seu print.
+2.  **`type: file` com `list: true`:** Como no nosso `index.html` nós mandamos o site carregar *um único* arquivo JSON (`casos.json`), nós precisamos dizer para o CMS: "Olha, o tipo de conteúdo é um Arquivo (`file`), mas dentro desse arquivo tem uma Lista (`list: true`) de objetos". Dessa forma o PagesCMS vai abrir uma interface onde você pode adicionar, editar ou remover itens dessa lista dentro do mesmo arquivo, sem quebrar o site.
+
+### Próximo passo após colar:
+
+1. Clique no botão verde **Save** no canto superior direito (na imagem que você mandou).
+2. Atualize a página inteira (F5).
+3. Observe se as "cobrinhas vermelhas" sumiram e se as abas "Investigações / Casos" e "Artigos e Debates" finalmente apareceram no menu esquerdo, logo abaixo de "Configuration".
