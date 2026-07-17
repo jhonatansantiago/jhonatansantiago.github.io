@@ -4,22 +4,23 @@ media:
 
 content:
   - name: casos
-    label: Casos Periciais
-    type: collection
+    label: Investigações / Casos
+    type: file
     path: casos.json
     format: json
+    list: true
     fields:
       - name: id
-        label: Codigo do Caso
+        label: Código do Caso
         type: string
       - name: title
-        label: Titulo do Caso
+        label: Título do Caso
         type: string
       - name: category
-        label: Categoria Tecnica
+        label: Categoria Técnica
         type: string
       - name: description
-        label: Descricao Resumida
+        label: Descrição Resumida
         type: text
       - name: system
         label: Sistema Analisado
@@ -29,7 +30,7 @@ content:
         type: select
         options:
           - Resolvido
-          - Em Analise
+          - Em Análise
       - name: statusTag
         label: Etiqueta de Status
         type: select
@@ -59,23 +60,24 @@ content:
         label: Imagem de Capa
         type: image
       - name: metodologia
-        label: Metodologia
-        type: text
+        label: Metodologia Aplicada
+        type: code
       - name: resultado
         label: Resultado Pericial
-        type: text
+        type: code
 
   - name: artigos
     label: Artigos e Debates
-    type: collection
+    type: file
     path: artigos.json
     format: json
+    list: true
     fields:
       - name: id
         label: Identificador
         type: string
       - name: title
-        label: Titulo
+        label: Título
         type: string
       - name: category
         label: Categoria
@@ -87,14 +89,17 @@ content:
         label: Imagem
         type: image
       - name: description
-        label: Descricao
+        label: Descrição
         type: text
       - name: content
-        label: Conteudo HTML
-        type: text
+        label: Conteúdo HTML
+        type: code
 ```eof
 
-4. Salve as alterações (Commit changes).
-5. No Pages CMS, force a atualização da página (F5 ou `Ctrl+Shift+R`).
+### O que mudou e por que agora vai funcionar?
+*   A chave **`type: collection`** (que espera uma pasta) foi trocada para **`type: file`** (que espera um arquivo único).
+*   A chave **`list: true`** foi adicionada logo abaixo do caminho do arquivo. Isso diz ao CMS: "Este arquivo é apenas uma grande lista de objetos. Deixe o usuário adicionar ou remover blocos dentro dela".
 
-Isso fará com que o Pages CMS entenda corretamente que `casos.json` e `artigos.json` são listas padronizadas, sem usar rótulos complexos que estavam confundindo a biblioteca React que roda a interface do CMS. Agora o botão de "Criar Novo" em ambas as seções deve carregar perfeitamente os formulários sem exibir o Erro 31.
+Com essa configuração, o CMS vai encontrar seus arquivos `casos.json` e `artigos.json` com sucesso, ler a lista que está lá dentro (que você criou usando meus códigos anteriores) e abrir a interface corretamente, sem esperar por uma pasta (directory entries).
+
+Basta comitar (salvar) o `.pages.yml` e dar F5 no painel do Pages CMS!
