@@ -26,39 +26,23 @@ content:
         label: Sistema Analisado
         type: string
       - name: statusVal
-        label: Status do Caso
-        type: select
-        options:
-          - Resolvido
-          - Em Análise
+        label: Status do Caso (Ex: Resolvido, Em Análise)
+        type: string
       - name: statusTag
-        label: Etiqueta de Status
-        type: select
-        options:
-          - Resolvido
-          - Em Andamento
+        label: Etiqueta de Status (Ex: Resolvido, Em Andamento)
+        type: string
       - name: statusColor
-        label: Cor do Status
-        type: select
-        options:
-          - green
-          - yellow
-          - red
+        label: Cor do Status (green, yellow, red)
+        type: string
       - name: visibility
-        label: Visibilidade
-        type: select
-        options:
-          - PÚBLICO
-          - RESTRITO
+        label: Visibilidade (PÚBLICO, RESTRITO)
+        type: string
       - name: visColor
-        label: Cor da Visibilidade
-        type: select
-        options:
-          - cyan
-          - red
+        label: Cor da Visibilidade (cyan, red)
+        type: string
       - name: img
         label: Imagem de Capa
-        type: image
+        type: string
       - name: metodologia
         label: Metodologia Aplicada
         type: rich-text
@@ -74,29 +58,29 @@ content:
     list: true
     fields:
       - name: id
-        label: Identificador
+        label: Identificador (Ex: L0G_2024.11.20)
         type: string
       - name: title
-        label: Título
+        label: Título do Artigo
         type: string
       - name: category
         label: Categoria
         type: string
       - name: readTime
-        label: Tempo de Leitura
+        label: Tempo de Leitura (Ex: 8 min de leitura)
         type: string
       - name: img
-        label: Imagem
-        type: image
+        label: Imagem de Capa
+        type: string
       - name: description
-        label: Descrição
+        label: Descrição Resumida
         type: text
       - name: content
         label: Conteúdo do Artigo
         type: rich-text
 ```eof
 
-4.  **Salve** (Commit changes).
-5.  Dê um **F5** forte no Pages CMS (você pode precisar limpar o cache ou clicar em "Go home" e tentar de novo).
-
-Agora, em vez do erro, você deve ver os seus formulários abrindo lindamente, e os campos "Metodologia", "Resultado" e "Conteúdo" aparecerão como caixas de edição de texto onde você pode colocar negrito, links e parágrafos de forma fácil!
+### Passo a Passo para conferir:
+1. Salve o arquivo `.pages.yml` com o código acima no GitHub.
+2. Dê um **F5** no Pages CMS.
+3. Agora o CMS irá ler os arquivos `casos.json` e `artigos.json` diretamente como listas planas de itens. Você verá a listagem de todos os seus 4 casos e 3 artigos na tela prontos para edição, adição ou remoção!
