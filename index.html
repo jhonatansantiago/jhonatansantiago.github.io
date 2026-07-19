@@ -819,49 +819,7 @@
                 </div>
             `;
         }
-
-        function renderTerminalDiscussao() {
-            return `
-                <div class="mt-16">
-                    <div class="flex justify-between items-end mb-4 font-mono text-xs uppercase tracking-wider">
-                        <span class="text-white font-bold">>_ Terminal de Discussão</span>
-                        <span class="text-gray-500">0 COMENTÁRIOS</span>
-                    </div>
-
-                    <div class="bg-[#0f172a] border border-gray-800 rounded-lg overflow-hidden shadow-2xl">
-                        <div class="terminal-header p-3 flex items-center">
-                            <div class="flex gap-2">
-                                <span class="w-3 h-3 rounded-full bg-red-500"></span>
-                                <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
-                                <span class="w-3 h-3 rounded-full bg-green-500"></span>
-                            </div>
-                            <span class="mx-auto text-[0.65rem] font-mono text-gray-500 font-bold uppercase tracking-widest">COMMENT_TERMINAL - bash</span>
-                        </div>
-
-                        <div class="p-6 font-mono text-sm">
-                            <div class="text-blue-400 mb-6 font-bold">$ echo "Junte-se à investigação..."</div>
-                            
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                                <div>
-                                    <label class="block text-[0.65rem] text-gray-500 mb-2 uppercase tracking-widest">Nome *</label>
-                                    <div class="relative">
-                                        <i class="fa-regular fa-user absolute left-3 top-3 text-gray-600"></i>
-                                        <input type="text" class="w-full bg-[#1e293b] border border-gray-700 text-gray-300 text-sm rounded pl-10 pr-4 py-2.5 focus:outline-none focus:border-blue-500 transition-colors" placeholder="Seu nome">
-                                    </div>
-                                </div>
-                                <div>
-                                    <label class="block text-[0.65rem] text-gray-500 mb-2 uppercase tracking-widest">Cargo / Profissão</label>
-                                    <div class="relative">
-                                        <i class="fa-regular fa-comment-dots absolute left-3 top-3 text-gray-600"></i>
-                                        <input type="text" class="w-full bg-[#1e293b] border border-gray-700 text-gray-300 text-sm rounded pl-10 pr-4 py-2.5 focus:outline-none focus:border-blue-500 transition-colors" placeholder="ex: Perito, Advogado, Estudante">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="mb-6">
-                                <label class="block text-[0.65rem] text-gray-500 mb-2 uppercase tracking-widest">Comentário *</label>
-                                <textarea class="w-full bg-[#1e293b] border border-gray-700 text-gray-300 text-sm rounded p-4 h-32 focus:outline-none focus:border-blue-500 transition-colors resize-none" placeholder="> Digite seu comentário técnico..."></textarea>
-                            </div>
+              </div>
 
                             <div class="flex flex-col md:flex-row justify-between items-center gap-4">
                                 <span class="text-[0.65rem] text-gray-500">Os comentários são moderados para manter o padrão técnico.</span>
